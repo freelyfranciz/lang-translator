@@ -1,19 +1,25 @@
 import React from 'react';
-import { FormattedMessage, FormattedDate, FormattedNumber } from 'react-intl';
-import defineMessages from './DefaultMessages';
+//import { FormattedMessage, FormattedDate, FormattedNumber } from 'react-intl';
+
+import FormattedMssg from './FormattedMssg';
 
 
-function MainPage() {
+function MainPage({data, lang, handleLangChange}) {
     return (
         <div className="container">
-            <FormattedMessage
-                id="title"
-                defaultMessage={defineMessages.title}
+             <FormattedMssg
+               data = {data.change}
             />
-            <br />
-            <FormattedMessage
-                id="text"
-                defaultMessage={defineMessages.text}
+            <button onClick={() => handleLangChange('en')}>English</button>
+            <button onClick={() => handleLangChange('ml')}>Malayalam</button>
+            <FormattedMssg
+               data = {data.title}
+            />
+            <FormattedMssg
+               data = {data.text}
+            />
+            <FormattedMssg
+               data = {data.person}
             />
         </div>
     )
